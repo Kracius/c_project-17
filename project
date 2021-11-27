@@ -1,0 +1,54 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+double calculator(double num, double num2, char act) {
+    switch (act) {
+        case '+':
+            return num + num2;
+        case '-':
+            return num - num2;
+        case '^':
+            return pow(num, 2);
+        case 's':
+            return sqrt(num);
+        case 'c':
+            return cbrt(num);
+        case '*':
+            return num * num2;
+        case '/':
+            return num / num2;
+        default:
+            return 0;
+    }
+}
+
+int main() {
+    printf("Калькулятор.\n");
+    printf("Умеет:\n"
+           "+\n"
+           "-\n"
+           "*\n"
+           "/\n"
+           "^ - pow\n"
+           "s - sqrt\n"
+           "c - cbrt\n");
+    printf("Ожидаю действие:\n");
+    char act;
+    cin >> act;
+    if (act == 'c' || act == 's' || act == '^') {
+        double num;
+        printf("Жду число:\n");
+        cin >> num;
+        printf("Ответ: %f", calculator(num, 0, act));
+    } else {
+        double num, num2;
+        printf("Жду первое число:\n");
+        cin >> num;
+        printf("Жду второе число:\n");
+        cin >> num2;
+        printf("Ответ: %f", calculator(num, num2, act));
+    }
+    return 0;
+}
